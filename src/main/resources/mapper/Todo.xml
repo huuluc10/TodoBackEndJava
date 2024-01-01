@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.research.todoapplication.mapper.TodoMapper">
+    <insert id="insertTodo" >
+        call insert_todo(#{userId}, #{todoId}, #{content}, #{isComplete});
+    </insert>
+
+    <update id="updateTodo" parameterType="Todo">
+        UPDATE Todo SET content = #{content}, isComplete = #{isComplete} WHERE todoId = #{todoId};
+    </update>
+
+    <delete id="deleteTodo" parameterType="long">
+        call delete_todo(#{userId}, #{todoId});
+    </delete>
+
+    <select id="getMaxTodoId" resultType="long">
+        SELECT MAX(todoId) FROM Todo;
+    </select>
+
+    <select id="selectTodo" resultMap="result">
+        SELECT * FROM Todo WHERE todoId IN (SELECT todoId FROM UserTodo WHERE userId = #{userId} AND (todoId = #{todoId} OR #{todoId} = -1));
+    </select>
+
+    <resultMap id = "result" type = "Todo">
+        <result property = "todoId" column = "todoId"/>
+        <result property = "content" column = "content"/>
+        <result property = "isComplete" column = "isComplete"/>
+    </resultMap>
+</mapper>
