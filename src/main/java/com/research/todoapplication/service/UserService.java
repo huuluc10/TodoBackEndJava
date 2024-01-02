@@ -8,6 +8,7 @@ import com.research.todoapplication.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -19,6 +20,8 @@ public class UserService {
     UserRepository userRepository;
     @Autowired
     TodoRepository todoRepository;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     private static final String NOT_FOUND = "Not found";
     private static final String BAD_REQUEST = "Bad request";
@@ -46,6 +49,7 @@ public class UserService {
 
     public ResponseEntity<ResponeAPI> insertUser(User user) {
         user.setUserId(getNewUserId());
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         HashMap<String, Object> params = new HashMap<>();
         params.put("user", user);
         int result = userRepository.insert(params);
