@@ -6,6 +6,7 @@
     <typeAliases>
         <typeAlias alias="User" type="com.research.todoapplication.model.User"></typeAlias>
         <typeAlias alias="Todo" type="com.research.todoapplication.model.Todo"></typeAlias>
+        <typeAlias alias="Role" type="com.research.todoapplication.model.Role"></typeAlias>
     </typeAliases>
 
     <environments default = "development">
@@ -24,5 +25,6 @@
     <mappers>
         <mapper resource="mapper/User.xml"/>
         <mapper resource="mapper/Todo.xml"/>
+        <mapper resource="mapper/Role.xml"/>
     </mappers>
 </configuration>

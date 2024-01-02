@@ -60,20 +60,18 @@ public class UserRepository {
         }
     }
 
-    public List<User> getAll(Map<String, String> params) {
+    public List<User> getAll(long userId, String username) {
         try {
-            long userId = Long.parseLong(params.get("userId"));
-            return userMapper.selectUser(userId);
+            return userMapper.selectUser(userId, username);
         } catch (Exception e) {
             System.out.println(new IOException("Error when get all user" +  e.getMessage()));
             return Collections.emptyList();
         }
     }
 
-    public User get(Map<String, String> params) {
+    public User get(long userId, String username) {
         try {
-            long userId = Long.parseLong(params.get("userId"));
-            return userMapper.selectUser(userId).get(0);
+            return userMapper.selectUser(userId, username).get(0);
         } catch (Exception e) {
             System.out.println(new IOException("Error when get all user" +  e.getMessage()));
             return null;
@@ -83,6 +81,17 @@ public class UserRepository {
     public long getMaxUserId() {
         try {
             return userMapper.getMaxUserId();
+        }
+        catch (Exception e) {
+            System.out.println(new CustomException(USER_NOT_FOUND, e.getMessage()));
+            return -1;
+        }
+    }
+
+    public long getUserId(String username) {
+        try {
+            User user = userMapper.selectUser(-1, username).get(0);
+            return user.getUserId();
         }
         catch (Exception e) {
             System.out.println(new CustomException(USER_NOT_FOUND, e.getMessage()));

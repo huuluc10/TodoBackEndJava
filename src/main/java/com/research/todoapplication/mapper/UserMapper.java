@@ -8,6 +8,6 @@ public interface UserMapper {
     int insertUser(User user);
     int updateUser(User user);
     int deleteUser(long userId);
-    List<User> selectUser(long userId);
+    List<User> selectUser(long userId, String username);
     long getMaxUserId();
 }

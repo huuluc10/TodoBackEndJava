@@ -26,9 +26,7 @@ public class UserService {
     private static final String USER_ID = "userId";
 
     public ResponseEntity<ResponeAPI> selectAllUser() {
-        HashMap<String, String> params = new HashMap<>();
-        params.put(USER_ID, "-1");
-        List<User> users =  userRepository.getAll(params);
+        List<User> users =  userRepository.getAll(-1, "*");
 
         if (users.isEmpty()) {
             return new ResponseEntity<>(new ResponeAPI(404, NOT_FOUND, null), org.springframework.http.HttpStatus.NOT_FOUND);
@@ -37,10 +35,8 @@ public class UserService {
         return new ResponseEntity<>(new ResponeAPI(200, SUCCESS, users), org.springframework.http.HttpStatus.OK);
     }
 
-    public ResponseEntity<ResponeAPI> selectUser(long userId) {
-        HashMap<String, String> params = new HashMap<>();
-        params.put(USER_ID, String.valueOf(userId));
-        User user =  userRepository.get(params);
+    public ResponseEntity<ResponeAPI> selectUser(long userId, String username) {
+        User user =  userRepository.get(userId, username);
 
         if (user == null) {
             return new ResponseEntity<>(new ResponeAPI(404, NOT_FOUND, null), org.springframework.http.HttpStatus.NOT_FOUND);
@@ -125,5 +121,9 @@ public class UserService {
     //get new todoId
     public long getNewTodoId() {
         return todoRepository.getMaxTodoId() + 1;
+    }
+
+    public long getUserId(String username) {
+        return userRepository.getUserId(username);
     }
 }

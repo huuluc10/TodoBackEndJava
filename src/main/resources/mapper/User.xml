@@ -16,7 +16,7 @@
     </delete>
 
     <select id="selectUser" resultMap="result">
-        SELECT * FROM User WHERE (userId = #{userId} OR #{userId} = -1);
+        SELECT * FROM User WHERE (userId = #{userId} OR #{userId} = -1) AND (username = #{username} OR #{username} = "*");
     </select>
 
     <select id="getMaxUserId" resultType="long">

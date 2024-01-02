@@ -17,10 +17,6 @@ public class MyBaticsConfig {
 
     private static final String SQL_MAPPER_CONFIG = "SqlMapperConfig.xml";
 
-    private MyBaticsConfig() {
-        throw new IllegalStateException("Utility class");
-    }
-
     @Bean
     public static SqlSessionFactory getSqlSessionFactory() {
         try {
