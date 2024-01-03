@@ -1,8 +1,6 @@
 package com.research.todoapplication.service;
 
-import com.research.todoapplication.model.ResponeAPI;
-import com.research.todoapplication.model.Todo;
-import com.research.todoapplication.model.User;
+import com.research.todoapplication.model.*;
 import com.research.todoapplication.repository.TodoRepository;
 import com.research.todoapplication.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,9 +45,9 @@ public class UserService {
         return new ResponseEntity<>(new ResponeAPI(200, SUCCESS, user), org.springframework.http.HttpStatus.OK);
     }
 
-    public ResponseEntity<ResponeAPI> insertUser(User user) {
+    public ResponseEntity<ResponeAPI> insertUser(UserRequest userRequest) {
+        User user = mapper(userRequest);
         user.setUserId(getNewUserId());
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
         HashMap<String, Object> params = new HashMap<>();
         params.put("user", user);
         int result = userRepository.insert(params);
@@ -59,7 +57,9 @@ public class UserService {
         return new ResponseEntity<>(new ResponeAPI(201, "Created", "Create user successfully"), org.springframework.http.HttpStatus.OK);
     }
 
-    public ResponseEntity<ResponeAPI> updateUser(User user) {
+    public ResponseEntity<ResponeAPI> updateUser(long userId, UserRequest userRequest) {
+        User user = mapper(userRequest);
+        user.setUserId(userId);
         int result = userRepository.update(user);
         if (result == 1) {
             return new ResponseEntity<>(new ResponeAPI(200, SUCCESS, "Update user successfully"), org.springframework.http.HttpStatus.OK);
@@ -97,8 +97,9 @@ public class UserService {
     }
 
     //update todo
-    public ResponseEntity<ResponeAPI> updateTodoByTodoId(Todo todo) {
-        System.out.println();
+    public ResponseEntity<ResponeAPI> updateTodoByTodoId(long todoId, TodoRequest todoRequest) {
+        Todo todo = mapper(todoRequest);
+        todo.setTodoId(todoId);
         int result = todoRepository.update(todo);
         if (result == -1) {
             return new ResponseEntity<>(new ResponeAPI(400, BAD_REQUEST, null), org.springframework.http.HttpStatus.BAD_REQUEST);
@@ -107,8 +108,8 @@ public class UserService {
     }
 
     //insert todo
-    public ResponseEntity<ResponeAPI> insertTodo(long userId, Todo t) {
-        Todo todo = t;
+    public ResponseEntity<ResponeAPI> insertTodo(long userId, TodoRequest todoRequest) {
+        Todo todo = mapper(todoRequest);
         todo.setTodoId(getNewTodoId());
         HashMap<String, Object> params = new HashMap<>();
         params.put(USER_ID, userId);
@@ -129,5 +130,20 @@ public class UserService {
 
     public long getUserId(String username) {
         return userRepository.getUserId(username);
+    }
+
+    private User mapper(UserRequest userRequest) {
+        User user = new User();
+        user.setUsername(userRequest.getUsername());
+        user.setRoleId(userRequest.getRoleId());
+        user.setPassword(passwordEncoder.encode(userRequest.getPassword()));
+        return user;
+    }
+
+    private Todo mapper(TodoRequest todoRequest) {
+        Todo todo = new Todo();
+        todo.setContent(todoRequest.getContent());
+        todo.setIsComplete(todoRequest.getIsComplete());
+        return todo;
     }
 }

@@ -2,6 +2,7 @@ package com.research.todoapplication.controller;
 
 import com.research.todoapplication.model.ResponeAPI;
 import com.research.todoapplication.model.Todo;
+import com.research.todoapplication.model.TodoRequest;
 import com.research.todoapplication.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -25,8 +26,8 @@ public class UserController {
     }
 
     @PostMapping("/todos")
-    public ResponseEntity<ResponeAPI> createTodo(Principal principal,@RequestBody Todo todo) {
-        return userService.insertTodo(getUserId(principal), todo);
+    public ResponseEntity<ResponeAPI> createTodo(Principal principal,@RequestBody TodoRequest todoRequest) {
+        return userService.insertTodo(getUserId(principal), todoRequest);
     }
 
     @DeleteMapping("/todos/{todoId}")
@@ -35,8 +36,8 @@ public class UserController {
     }
 
     @PutMapping("/todos/{todoId}")
-    public ResponseEntity<ResponeAPI> updateTodoByUser(@RequestBody Todo todo) {
-        return userService.updateTodoByTodoId(todo);
+    public ResponseEntity<ResponeAPI> updateTodoByUser(@PathVariable long todoId, @RequestBody TodoRequest todoRequest) {
+        return userService.updateTodoByTodoId(todoId, todoRequest);
     }
 
     @GetMapping("/todos/{todoId}")
