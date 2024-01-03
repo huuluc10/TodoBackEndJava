@@ -14,27 +14,27 @@ public class AdminTodoController {
     @Autowired
     UserService userService;
 
-    @GetMapping("/todos")
+    @GetMapping
     public ResponseEntity<ResponeAPI> getAllTodoByUser(@PathVariable long userId) {
         return userService.selectAllTodo(userId);
     }
 
-    @PostMapping("/todos")
+    @PostMapping
     public ResponseEntity<ResponeAPI> createTodoByUser(@PathVariable long userId, @RequestBody TodoRequest todoRequest) {
         return userService.insertTodo(userId, todoRequest);
     }
 
-    @DeleteMapping("/todos/{todoId}")
+    @DeleteMapping("/{todoId}")
     public ResponseEntity<ResponeAPI> deleteTodoByUser(@PathVariable long userId, @PathVariable long todoId) {
         return userService.deleteTodoByTodoId(userId, todoId);
     }
 
-    @PutMapping("/todos/{todoId}")
+    @PutMapping("/{todoId}")
     public ResponseEntity<ResponeAPI> updateTodoByUser(@PathVariable long todoId, @RequestBody TodoRequest todoRequest) {
         return userService.updateTodoByTodoId(todoId, todoRequest);
     }
 
-    @GetMapping("/todos/{todoId}")
+    @GetMapping("/{todoId}")
     public ResponseEntity<ResponeAPI> getTodo(@PathVariable long userId, @PathVariable long todoId) {
         return userService.selectTodo(userId, todoId);
     }
