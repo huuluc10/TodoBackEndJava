@@ -29,6 +29,7 @@ public class UserRepository {
         try {
             User user = (User) params.get("user");
             int result = userMapper.insertUser(user);
+            System.out.println(result);
             sqlSession.commit();
             return result;
         } catch (Exception e) {

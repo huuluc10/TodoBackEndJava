@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 
-@Controller
+@RestController
 @RequestMapping("/api/user")
 public class UserController {
     @Autowired

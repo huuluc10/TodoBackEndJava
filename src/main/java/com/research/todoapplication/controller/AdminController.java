@@ -4,12 +4,14 @@ import com.research.todoapplication.model.ResponeAPI;
 import com.research.todoapplication.model.Todo;
 import com.research.todoapplication.model.User;
 import com.research.todoapplication.service.UserService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping ("/api/admin/users")
+@Tag(name = "Admin")
 public class AdminController {
     @Autowired
     UserService userService;
