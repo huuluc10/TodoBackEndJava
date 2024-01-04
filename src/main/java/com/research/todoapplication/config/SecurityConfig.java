@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -27,22 +28,23 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/", "/home", "/swagger-ui/**").permitAll()
+                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html").permitAll()
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .requestMatchers("/api/user/**").hasRole("USER")
                         .anyRequest()
                         .authenticated()
                 )
-                .formLogin((form) -> form
-                        .loginPage("/login")
-                        .permitAll()
-                )
-                .logout((logout) -> logout
-                        .logoutUrl("/logout")
-                        .invalidateHttpSession(true)
-                        .deleteCookies()
-                        .permitAll())
-                .csrf(csrf -> csrf.ignoringRequestMatchers("/api/**"));
+//                .formLogin((form) -> form
+//                        .loginPage("/login")
+//                        .permitAll()
+//                )
+//                .logout((logout) -> logout
+//                        .logoutUrl("/logout")
+//                        .invalidateHttpSession(true)
+//                        .deleteCookies()
+//                        .permitAll())
+                .csrf(csrf -> csrf.ignoringRequestMatchers("/api/**"))
+                .httpBasic(Customizer.withDefaults());
 
         return http.build();
     }
