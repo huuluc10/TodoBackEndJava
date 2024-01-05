@@ -15,6 +15,7 @@ import java.io.Reader;
 @ComponentScan(basePackages = "com.research.todoapplication")
 public class MyBaticsConfig {
 
+
     private static final String SQL_MAPPER_CONFIG = "SqlMapperConfig.xml";
 
     @Bean

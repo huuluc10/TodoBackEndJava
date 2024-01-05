@@ -9,27 +9,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
+
 @RestController
-@RequestMapping("/api/admin/{userId}/todos")
-@Tag(name = "Admin Todo")
+@RequestMapping("/api/user/todos")
+@Tag(name = "User Todo")
 @SecurityRequirement(name = "auth-api")
-public class AdminTodoController {
+public class UserTodoController {
     @Autowired
     UserService userService;
-
     @GetMapping
-    public ResponseEntity<ResponeAPI> getAllTodoByUser(@PathVariable long userId) {
-        return userService.selectAllTodo(userId);
+    public ResponseEntity<ResponeAPI> getAllTodoByUser(Principal principal) {
+        return userService.selectAllTodo(getUserId(principal));
     }
 
     @PostMapping
-    public ResponseEntity<ResponeAPI> createTodoByUser(@PathVariable long userId, @RequestBody TodoRequest todoRequest) {
-        return userService.insertTodo(userId, todoRequest);
+    public ResponseEntity<ResponeAPI> createTodo(Principal principal,@RequestBody TodoRequest todoRequest) {
+        return userService.insertTodo(getUserId(principal), todoRequest);
     }
 
     @DeleteMapping("/{todoId}")
-    public ResponseEntity<ResponeAPI> deleteTodoByUser(@PathVariable long userId, @PathVariable long todoId) {
-        return userService.deleteTodoByTodoId(userId, todoId);
+    public ResponseEntity<ResponeAPI> deleteTodoByUser(Principal principal, @PathVariable long todoId) {
+        return userService.deleteTodoByTodoId(getUserId(principal), todoId);
     }
 
     @PutMapping("/{todoId}")
@@ -38,7 +39,10 @@ public class AdminTodoController {
     }
 
     @GetMapping("/{todoId}")
-    public ResponseEntity<ResponeAPI> getTodo(@PathVariable long userId, @PathVariable long todoId) {
-        return userService.selectTodo(userId, todoId);
+    public ResponseEntity<ResponeAPI> getTodo(Principal principal, @PathVariable long todoId) {
+        return userService.selectTodo(getUserId(principal), todoId);
+    }
+    private long getUserId(Principal principal) {
+        return userService.getUserId(principal.getName());
     }
 }

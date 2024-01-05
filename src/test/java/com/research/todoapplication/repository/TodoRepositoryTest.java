@@ -67,7 +67,7 @@ class TodoRepositoryTest {
         long todoId = 1;
         todoRepositoryUnderTest.delete(userId, todoId);
         List<Todo> todoList = todoRepositoryUnderTest.getTodo(userId, todoId);
-        assert (todoRepositoryUnderTest.getTodo(userId, todoId).size() == 0);
+        assert (todoList.size() == 0);
     }
    
 }
