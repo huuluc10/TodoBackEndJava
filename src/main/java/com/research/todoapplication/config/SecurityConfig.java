@@ -28,21 +28,12 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html").permitAll()
+                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html", "/api/signup").permitAll()
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .requestMatchers("/api/user/**").hasRole("USER")
                         .anyRequest()
                         .authenticated()
                 )
-//                .formLogin((form) -> form
-//                        .loginPage("/login")
-//                        .permitAll()
-//                )
-//                .logout((logout) -> logout
-//                        .logoutUrl("/logout")
-//                        .invalidateHttpSession(true)
-//                        .deleteCookies()
-//                        .permitAll())
                 .csrf(csrf -> csrf.ignoringRequestMatchers("/api/**"))
                 .httpBasic(Customizer.withDefaults());
 
