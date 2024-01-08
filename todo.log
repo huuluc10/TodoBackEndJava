@@ -211,3 +211,68 @@
 2024-01-08T08:54:40.751+07:00 DEBUG 20460 --- [http-nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
 2024-01-08T08:54:40.754+07:00 DEBUG 20460 --- [http-nio-8080-exec-9] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ResponeAPI(code=200, message=Success, data=[User(userId=0, username=admin, roleId=1, password=$2a$10 (truncated)...]
 2024-01-08T08:54:40.757+07:00 DEBUG 20460 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-01-08T09:15:53.751+07:00  INFO 13992 --- [restartedMain] c.r.todoapplication.TodoApplication      : Starting TodoApplication using Java 21.0.1 with PID 13992 (D:\code\training_java\TodoApplication\target\classes started by lucng in D:\code\training_java\TodoApplication)
+2024-01-08T09:15:53.766+07:00  INFO 13992 --- [restartedMain] c.r.todoapplication.TodoApplication      : No active profile set, falling back to 1 default profile: "default"
+2024-01-08T09:15:53.938+07:00  INFO 13992 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-01-08T09:15:53.939+07:00  INFO 13992 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-01-08T09:15:56.684+07:00  WARN 13992 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.research.todoapplication]' package. Please check your configuration.
+2024-01-08T09:15:57.482+07:00  INFO 13992 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-01-08T09:15:57.502+07:00  INFO 13992 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-01-08T09:15:57.502+07:00  INFO 13992 --- [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.17]
+2024-01-08T09:15:57.590+07:00  INFO 13992 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-01-08T09:15:57.591+07:00  INFO 13992 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3651 ms
+2024-01-08T09:15:57.837+07:00 DEBUG 13992 --- [restartedMain] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2024-01-08T09:15:58.428+07:00  INFO 13992 --- [restartedMain] c.r.t.repository.UserRepository          : UserRepository created
+2024-01-08T09:15:58.501+07:00  INFO 13992 --- [restartedMain] c.r.t.repository.TodoRepository          : TodoRepository created
+2024-01-08T09:15:58.581+07:00  INFO 13992 --- [restartedMain] c.r.t.repository.RoleRepository          : RoleRepository created
+2024-01-08T09:15:59.448+07:00 DEBUG 13992 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerMapping : 25 mappings in 'requestMappingHandlerMapping'
+2024-01-08T09:15:59.577+07:00 DEBUG 13992 --- [restartedMain] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**, /swagger-ui*/*swagger-initializer.js, /swagger-ui*/**] in 'resourceHandlerMapping'
+2024-01-08T09:15:59.902+07:00  INFO 13992 --- [restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2024-01-08T09:16:00.024+07:00  INFO 13992 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@48291ba6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1604d9ba, org.springframework.security.web.context.SecurityContextHolderFilter@2d61dba1, org.springframework.security.web.header.HeaderWriterFilter@72859e75, org.springframework.web.filter.CorsFilter@1410a693, org.springframework.security.web.csrf.CsrfFilter@4ff9d9c8, org.springframework.security.web.authentication.logout.LogoutFilter@70523439, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@6f7620b1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@28a2222c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@77617021, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@65c6d8d4, org.springframework.security.web.access.ExceptionTranslationFilter@12b0c0cf, org.springframework.security.web.access.intercept.AuthorizationFilter@1bc0dbf8]
+2024-01-08T09:16:00.207+07:00 DEBUG 13992 --- [restartedMain] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-01-08T09:16:00.279+07:00 DEBUG 13992 --- [restartedMain] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-01-08T09:16:00.338+07:00  WARN 13992 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2024-01-08T09:16:00.872+07:00  INFO 13992 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-01-08T09:16:01.196+07:00  INFO 13992 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-01-08T09:16:01.217+07:00  INFO 13992 --- [restartedMain] c.r.todoapplication.TodoApplication      : Started TodoApplication in 8.678 seconds (process running for 11.347)
+2024-01-08T09:16:01.447+07:00  INFO 13992 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-01-08T09:16:01.448+07:00  INFO 13992 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-01-08T09:16:01.448+07:00 DEBUG 13992 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-01-08T09:16:01.448+07:00 DEBUG 13992 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-01-08T09:16:01.448+07:00 DEBUG 13992 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-01-08T09:16:01.452+07:00 DEBUG 13992 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@1a4ae3a5
+2024-01-08T09:16:01.453+07:00 DEBUG 13992 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@d426832
+2024-01-08T09:16:01.454+07:00 DEBUG 13992 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-01-08T09:16:01.456+07:00  INFO 13992 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2024-01-08T09:16:01.524+07:00 DEBUG 13992 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/index.html", parameters={}
+2024-01-08T09:16:01.531+07:00 DEBUG 13992 --- [http-nio-8080-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-01-08T09:16:01.564+07:00 DEBUG 13992 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-01-08T09:16:01.668+07:00 DEBUG 13992 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-ui.css", parameters={}
+2024-01-08T09:16:01.668+07:00 DEBUG 13992 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/index.css", parameters={}
+2024-01-08T09:16:01.668+07:00 DEBUG 13992 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-ui-standalone-preset.js", parameters={}
+2024-01-08T09:16:01.668+07:00 DEBUG 13992 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-initializer.js", parameters={}
+2024-01-08T09:16:01.669+07:00 DEBUG 13992 --- [http-nio-8080-exec-2] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-01-08T09:16:01.671+07:00 DEBUG 13992 --- [http-nio-8080-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-01-08T09:16:01.669+07:00 DEBUG 13992 --- [http-nio-8080-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-01-08T09:16:01.669+07:00 DEBUG 13992 --- [http-nio-8080-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-01-08T09:16:01.683+07:00 DEBUG 13992 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/swagger-ui-bundle.js", parameters={}
+2024-01-08T09:16:01.686+07:00 DEBUG 13992 --- [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-01-08T09:16:01.690+07:00 DEBUG 13992 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-01-08T09:16:01.694+07:00 DEBUG 13992 --- [http-nio-8080-exec-4] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-01-08T09:16:01.738+07:00 DEBUG 13992 --- [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-01-08T09:16:01.830+07:00 DEBUG 13992 --- [http-nio-8080-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-01-08T09:16:01.881+07:00 DEBUG 13992 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-01-08T09:16:02.284+07:00 DEBUG 13992 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/v3/api-docs/swagger-config", parameters={}
+2024-01-08T09:16:02.288+07:00 DEBUG 13992 --- [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.ui.SwaggerConfigResource#openapiJson(HttpServletRequest)
+2024-01-08T09:16:02.302+07:00 DEBUG 13992 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : GET "/swagger-ui/favicon-32x32.png", parameters={}
+2024-01-08T09:16:02.306+07:00 DEBUG 13992 --- [http-nio-8080-exec-8] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/webjars/]]
+2024-01-08T09:16:02.314+07:00 DEBUG 13992 --- [http-nio-8080-exec-8] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-01-08T09:16:02.326+07:00 DEBUG 13992 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json]
+2024-01-08T09:16:02.332+07:00 DEBUG 13992 --- [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing [{configUrl=/v3/api-docs/swagger-config, oauth2RedirectUrl=http://localhost:8080/swagger-ui/oauth2-re (truncated)...]
+2024-01-08T09:16:02.342+07:00 DEBUG 13992 --- [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-01-08T09:16:02.419+07:00 DEBUG 13992 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : GET "/v3/api-docs", parameters={}
+2024-01-08T09:16:02.420+07:00 DEBUG 13992 --- [http-nio-8080-exec-9] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springdoc.webmvc.api.OpenApiWebMvcResource#openapiJson(HttpServletRequest, String, Locale)
+2024-01-08T09:16:03.412+07:00  INFO 13992 --- [http-nio-8080-exec-9] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 974 ms
+2024-01-08T09:16:03.487+07:00 DEBUG 13992 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [application/json, */*] and supported [application/json]
+2024-01-08T09:16:03.488+07:00 DEBUG 13992 --- [http-nio-8080-exec-9] m.m.a.RequestResponseBodyMethodProcessor : Writing [{123, 34, 111, 112, 101, 110, 97, 112, 105, 34, 58, 34, 51, 46, 48, 46, 49, 34, 44, 34, 105, 110, 10 (truncated)...]
+2024-01-08T09:16:03.492+07:00 DEBUG 13992 --- [http-nio-8080-exec-9] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
